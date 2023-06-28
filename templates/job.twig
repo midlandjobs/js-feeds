@@ -1,0 +1,70 @@
+<li>
+  <div class="uk-box-shadow-hover-medium uk-padding-small">
+    <div class="uk-grid uk-flex uk-flex-middle" uk-grid>
+
+      {# logo #}
+      <div class="job-logo uk-width-small@m" {% if job.company is not empty %}uk-tooltip="{{ job.company }}"{% endif %}>
+        <img src="{{ (job.companylogo is not empty) ? job.companylogo : 'https://midlandjobs.ie/templates/BootstrapDND/assets/images/midlandjobs-logo-wh.png' }}" width="100">
+      </div>
+
+      {# job title #}
+      <div class="job-title uk-width-expand@m">
+        <h2 class="uk-h5 uk-text-bold uk-text-emphasis">
+          <a class="uk-link-heading" href="{{job.url|default('#')}}" uk-tooltip="View job on midlandjobs.ie" target="_blank">{{ (job.title is not empty) ? job.title : 'N/A' }}</a>
+        </h2>
+      </div>
+
+      {# company title #}
+      <div class="job-company uk-width-medium@m uk-text-small">
+        {% if job.companywebsite is not empty %}<a href="http://{{job.companywebsite|replace({'http://': '', 'https://': ''})}}" class="uk-link-text" target="_blank" uk-tooltip="Visit {{job.companywebsite|replace({'https://': ''})|trim('/', 'right')}}">{% endif %}
+          {{ (job.company is not empty) ? job.company : 'N/A' }}
+        {% if job.companywebsite is not empty %}</a>{% endif %}
+      </div>
+
+      {# location #}
+      {% set location_string %}
+        {% if (job.city is not empty) or (job.state is not empty) %}
+          {% if job.city is not empty %}
+            {{ job.city }}{{ (job.state is not empty or job.country is not empty) ? ', ' }}
+          {% endif %}
+          {% if job.state is not empty %}
+            {{ job.state|capitalize|replace({'County': 'Co.'}) }},
+          {% endif %}
+        {% endif %}
+        {{ (job.country is not empty) ? job.country|replace({'Ireland': 'IRE'}) : 'IRE' }}
+      {% endset %}
+      {% if job.remote is not empty and (job.remote != 'no' or job.remote == 'hybrid') %}
+        {% set job_location = job.remote ~ ' (' ~ location_string|spaceless ~ ')' %}
+      {% elseif (job.remote is empty or job.remote == 'no')  %}
+        {% set job_location = location_string|spaceless %}
+      {% endif %}
+      <div class="job-location uk-width-small@m uk-text-small uk-text-truncate" uk-tooltip="{{ job_location|capitalize }}"><span uk-icon="icon: location; ratio: .8"></span> {{ job_location|capitalize }}</div>
+
+      {# labels: job-type, salary, view-job & apply-job #}
+      <div class="job-type-labels uk-width-large@m">
+
+        {# job-type #}
+        {% if job.jobtype is not empty %}
+          {% set types = job.jobtype|split(",") %}
+          {% if types %}
+            {% for type in types %}
+              <div class="uk-badge">{{ type }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+
+        {# salary #}
+        {% if job.salary is not empty %}
+          <div class="uk-badge badge-salary">{{ job.salary }}</div>
+        {% endif %}
+
+        {# job/apply buttons #}
+        {% if job.applyurl is not empty %}
+          <a href="{{ job.applyurl }}" target="_blank" class="uk-button uk-button-link uk-text-capitalize" uk-tooltip="Apply via midlandjobs.ie">Apply <span uk-icon="icon: arrow-right; ratio: .8"></span></a>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</li>

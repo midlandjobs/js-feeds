@@ -1,0 +1,30 @@
+{% extends 'base.twig' %}
+{# {% include 'hello.twig' %} #}
+
+{% block jobs_block %}
+  {% if jobs is not empty %}
+    <ul class="uk-child-width-1-1 uk-grid-collapse" uk-grid>
+      {# loop conditionally using remote filter. for iterable & non-iterable jobs #}
+      {% if jobs is iterable %}
+        {% if remote %}
+          {% for job in jobs|filter((job) => job.remote != 'no') -%}
+            {% include 'job.twig' %} {# should only loop & display the remote jobs here #}
+          {% endfor %}
+        {% else %}
+          {% for job in jobs %}
+            {% include 'job.twig' %}
+          {% endfor %}
+        {% endif %}
+      {% elseif jobs is not iterable %}
+        {% set job = jobs %}
+        {% if remote %}
+          {% if job.remote != 'no' %}
+            {% include 'job.twig' %} {# should only display the remote job here #}
+          {% endif %}
+        {% else %}
+          {% include 'job.twig' %}
+        {% endif %}
+      {% endif %}
+    </ul>
+  {% endif %}
+{% endblock %}

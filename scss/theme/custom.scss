@@ -1,0 +1,80 @@
+// uikit components used: uk-grid, uk-padding, uk-width, uk-flex, uk-text, uk-h5, uk-link, uk-icon, uk-button, uk-badge, uk-box-shadow, uk-tooltip
+
+.project {
+
+  .uk-badge {
+    min-width: 18px;
+    height: 18px;
+    padding: 10px 10px;
+    border-radius: 500px;
+    font-size: .875rem;
+    background: #1e87f000;
+    color: #1e87f0!important;
+    border: 2px solid #1e87f0;
+  }
+
+  .badge-date {
+    background: #000!important;
+    color: #fff!important;
+    border-color: #000!important;
+  }
+  .badge-salary {
+    background: #32d296!important;
+    color: #fff!important;
+    border-color: #32d296!important;
+  }
+
+  .job-title {
+    padding-left: 30px;
+  }
+
+  .job-location, .job-logo {
+    cursor: pointer;
+  }
+  
+  .uk-box-shadow-hover-medium:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    background-color: #fff;
+  }
+
+  [class*=uk-box-shadow-hover] {
+    transition: box-shadow,background-color .1s ease-in-out;
+  }
+
+}
+
+@media (max-width: 959px){
+  .project {
+    .uk-text-truncate {
+      overflow: unset;
+      max-width: unset;
+      text-overflow: unset;
+      white-space: unset;
+    }
+  }
+}
+
+@media (min-width: 960px){
+  .project {
+    .uk-width-small\@m {
+      width: 150px;
+    }
+    .uk-width-medium\@m {
+      width: 200px;
+    }
+    .uk-width-large\@m {
+      width: 270px;
+    }
+    // .uk-width-expand\@m {
+    //   min-width: 100px;
+    // }
+  }
+}
+
+@media (min-width: 1200px){
+  .project {
+    .job-title {
+      padding-left: 20px;
+    }
+  }
+}

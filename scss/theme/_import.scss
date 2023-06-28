@@ -1,0 +1,50 @@
+// 1. set the theme variables
+$theme_border: 1px solid #e5e5e5;
+$theme_border_color: #e5e5e5;
+$theme_border_accent_color: #e5e5e5;
+$theme_border_thick: 2px solid #e5e5e5;
+$theme_border_light: 1px solid rgba(255,255,255,.2);
+$theme_solid_border: 2px solid 1px solid #e5e5e591;
+
+// red: #cf372d
+// deep red: #a9231a
+// _blue: #120287 
+
+// colours
+$theme_primary: #cf372d; // red
+$theme_primary_dark: #a9231a; // darker red
+$theme_secondary: #FBBD02; // yellow
+$theme_black: #1e1e1e; // black-ish
+$nav_text_colour: #999;
+$navbar_dropdown_shadow: 0 5px 12px rgba(0,0,0,.15);
+$navbar_border: #e5e5e554;
+$heading_color: #333;
+$text_color: #666;
+
+$footer_overlay: rgba(34,34,34,.40);
+
+// colours
+$heading_weight: 700;
+$super_boldest_weight: 900;
+$boldest_weight: 700;
+$bolder_weight: 600;
+$bold_weight: 500;
+$navbar_item_weight: 500;
+
+$theme_font: 'DM Sans', sans-serif;;
+
+$theme_primary_overlay: rgba(20,20,20,.79);
+$theme_faint_overlay: #1c1c1c0a;
+$page_header_overlay: rgba(34,34,34,.4);
+
+// 2. import the theme components
+
+@import "custom.scss";
+
+// 3. import the outside sources. this may be done as a separate file in assets/scss folder, tho woocommerce uses some uikit variables at the moment
+
+// Import fontawesome sass
+// @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+// @import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+// @import "node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+// @import "node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
