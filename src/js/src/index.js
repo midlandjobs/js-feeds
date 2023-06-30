@@ -34,7 +34,7 @@ export default class MidlandJobsFeed {
 		this.params = params;
 
 		// private
-		this.#proxy = 'https://test.com/projects/xmlproxy/xmlproxy.php';
+		this.#proxy = 'https://robertmccormack.com/projects/proxy.php';
 		if (this.isFeedUrlValid()) this.#proxy_url = encodeURI(this.#proxy) + "?url=" + encodeURI(this.url);
 		this.#twing = new TwingEnvironment(new TwingLoaderArray(templatesArray));
 
