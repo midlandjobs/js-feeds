@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/midlandjobs/js-feeds/src/img/favicon.ico">
+
+    <!-- resources -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/midlandjobs/js-feeds/src/css/base.css" />
+    <script defer src="https://cdn.jsdelivr.net/gh/midlandjobs/js-feeds/src/js/main.js"></script>
+    <script>
+      window.addEventListener('load', (event) => {
+        (async () => {
+          await new MidlandJobsFeed('#ITFeed', 'https://midlandjobs.ie/feeds/standard.xml');
+          await new MidlandJobsFeed('#RemoteFeed', 'https://midlandjobs.ie/feeds/standard.xml', {remote: true});
+        })();
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <!-- markup -->
+    <div class="project">
+      <div class="project-container">
+
+      <section class="uk-section uk-section-default">
+        <div id="ITFeed" class="uk-container">Loading...</div>
+      </section>
+    
+      <section class="uk-section uk-section-muted">
+        <div id="RemoteFeed" class="uk-container uk-container-small">Loading...</div>
+      </section>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
