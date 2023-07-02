@@ -58,7 +58,7 @@ module.exports = {
   
   
   entry: {
-    base: './src/js/src/index.js',
+    latest: './src/js/src/index.js',
   },
   
   output: {
