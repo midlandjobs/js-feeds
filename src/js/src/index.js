@@ -168,18 +168,18 @@ export default class MidlandJobsFeed {
 		let json;
 
 		try {
-
+			
 			const response = await fetch(this.#proxy_url, {
-				method: "GET", // *GET, POST, PUT, DELETE, etc.
-				mode: "no-cors", // no-cors, *cors, same-origin
-				credentials: "include", // include, *same-origin, omit
-				headers: {
-					"Content-Type": "application/json",
-					'MidlandJobsFeedsApiKey': '614d0eca-8d94-4e13-ba09-8c61c126c69b',
-					'MidlandJobsFeedsApiHost': 'midlandjobs.ie',
-				},
-			});
 
+				method: "GET", // *GET, POST, PUT, DELETE, etc.
+				mode: "cors", // no-cors, *cors, same-origin
+				cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+				headers: {
+					'Midland-Jobs-Feeds-Api-Key': '614d0eca-8d94-4e13-ba09-8c61c126c69b',
+					'Midland-Jobs-Feeds-Api-Host': 'midlandjobs.ie',
+				},
+
+			});
 			json = await response.json();
 
 			if (report) {

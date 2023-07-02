@@ -9,13 +9,13 @@
 
     <!-- resources -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/midlandjobs/js-feeds/src/css/base.css" />
-    <script defer src="https://cdn.jsdelivr.net/gh/midlandjobs/js-feeds/src/js/latest.js"></script>
-    <!-- <script defer src="src/js/base.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/gh/midlandjobs/js-feeds/src/js/front.js"></script>
+    <!-- <script defer src="src/js/front.js"></script> -->
     <script>
       window.addEventListener('load', (event) => {
         (async () => {
           await new MidlandJobsFeed('#ITFeed', 'https://midlandjobs.ie/feeds/standard.xml');
-          await new MidlandJobsFeed('#RemoteFeed', 'https://midlandjobs.ie/feeds/standard.xml', {remote: true});
+          // await new MidlandJobsFeed('#RemoteFeed', 'https://midlandjobs.ie/feeds/standard.xml', {remote: true});
         })();
       });
     </script>
