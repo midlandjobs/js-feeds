@@ -35,7 +35,8 @@ export default class MidlandJobsFeed {
 
 		// private
 		this.#proxy = 'https://robertmccormack.com/projects/proxy.php';
-		if (this.isFeedUrlValid()) this.#proxy_url = encodeURI(this.#proxy) + "?url=" + encodeURI(this.url);
+		// if (this.isFeedUrlValid()) this.#proxy_url = encodeURI(this.#proxy) + "?url=" + encodeURI(this.url);
+		this.#proxy_url = encodeURI(this.#proxy) + "?url=" + encodeURI(this.url);
 		this.#twing = new TwingEnvironment(new TwingLoaderArray(templatesArray));
 
 		// attempt to build the feed & place it

@@ -58,7 +58,7 @@ module.exports = {
   
   
   entry: {
-    front: './src/js/src/index.js',
+    feeds: './src/js/src/index.js',
   },
   
   output: {
